@@ -2,6 +2,8 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from typing import List, Optional
 from pydantic import BaseModel
+from datetime import datetime, timedelta
+import uuid
 from mock_data import inventory_items, orders, demand_forecasts, backlog_items, spending_summary, monthly_spending, category_spending, recent_transactions, purchase_orders
 
 app = FastAPI(title="Factory Inventory Management System")
@@ -120,6 +122,14 @@ class CreatePurchaseOrderRequest(BaseModel):
     expected_delivery_date: str
     notes: Optional[str] = None
 
+class CreateRestockingOrderRequest(BaseModel):
+    customer: str
+    items: List[dict]
+    status: str
+    warehouse: str
+    category: str
+    total_value: float
+
 # API endpoints
 @app.get("/")
 def root():
@@ -160,6 +170,25 @@ def get_order(order_id: str):
     if not order:
         raise HTTPException(status_code=404, detail="Order not found")
     return order
+
+@app.post("/api/orders", response_model=Order)
+def create_order(order_req: CreateRestockingOrderRequest):
+    """Create a new order (for restocking)"""
+    new_order = {
+        'id': str(uuid.uuid4()),
+        'order_number': f'ORD-RST-{len(orders) + 1:04d}',
+        'customer': order_req.customer,
+        'items': order_req.items,
+        'status': order_req.status,
+        'warehouse': order_req.warehouse,
+        'category': order_req.category,
+        'order_date': datetime.now().isoformat(),
+        'expected_delivery': (datetime.now() + timedelta(days=7)).isoformat(),
+        'total_value': order_req.total_value
+    }
+
+    orders.append(new_order)
+    return new_order
 
 @app.get("/api/demand", response_model=List[DemandForecast])
 def get_demand_forecasts():

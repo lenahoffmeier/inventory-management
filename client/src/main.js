@@ -1,22 +1,33 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
+import SidebarLayout from './layouts/SidebarLayout.vue'
 import Dashboard from './views/Dashboard.vue'
 import Inventory from './views/Inventory.vue'
 import Orders from './views/Orders.vue'
 import Demand from './views/Demand.vue'
 import Spending from './views/Spending.vue'
 import Reports from './views/Reports.vue'
+import Restocking from './views/Restocking.vue'
+import './styles/saas-design-system.css'
+import './styles/page-styles.css'
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: '/', component: Dashboard },
-    { path: '/inventory', component: Inventory },
-    { path: '/orders', component: Orders },
-    { path: '/demand', component: Demand },
-    { path: '/spending', component: Spending },
-    { path: '/reports', component: Reports }
+    {
+      path: '/',
+      component: SidebarLayout,
+      children: [
+        { path: '', component: Dashboard },
+        { path: 'inventory', component: Inventory },
+        { path: 'orders', component: Orders },
+        { path: 'demand', component: Demand },
+        { path: 'spending', component: Spending },
+        { path: 'restocking', component: Restocking },
+        { path: 'reports', component: Reports }
+      ]
+    }
   ]
 })
 
