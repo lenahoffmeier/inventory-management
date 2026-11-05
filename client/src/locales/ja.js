@@ -6,6 +6,7 @@ export default {
     orders: '注文',
     finance: '財務',
     demandForecast: '需要予測',
+    restocking: '再補充',
     companyName: '触媒コンポーネンツ',
     subtitle: '在庫管理システム'
   },
@@ -106,10 +107,12 @@ export default {
     title: '注文',
     description: '顧客注文の表示と管理',
     allOrders: 'すべての注文',
+    submittedOrders: '送信済み注文',
     totalOrders: '総注文数',
     totalRevenue: '総収益',
     avgOrderValue: '平均注文額',
     onTimeDelivery: '定時配達',
+    deliveryLeadTime: '予定配達日',
     itemsCount: '{count}件',
     quantity: '数量',
     table: {
@@ -204,6 +207,7 @@ export default {
     shipped: '出荷済み',
     processing: '処理中',
     backordered: 'バックオーダー',
+    'submitted order': '送信済み注文',
     inStock: '在庫あり',
     lowStock: '在庫僅少',
     adequate: '適量'
@@ -314,6 +318,7 @@ export default {
   // Common
   common: {
     loading: '読み込み中...',
+    submitting: '送信中...',
     error: 'エラー',
     noData: 'データがありません',
     viewDetails: '詳細を見る',
@@ -378,5 +383,27 @@ export default {
     'Premier Industries': 'プレミア工業',
     'Stellar Components Ltd': 'ステラコンポーネンツ',
     'Dynamic Systems Ltd': 'ダイナミックシステムズ'
+  },
+
+  // Restocking
+  restocking: {
+    title: '再補充',
+    description: '需要予測に基づいて再補充注文を計画・送信',
+    budgetLabel: '利用可能な予算',
+    budgetSlider: '予算を設定',
+    recommendedItems: '推奨品目',
+    noRecommendations: '現在の予算とフィルターで推奨する品目がありません',
+    itemName: '品目',
+    currentDemand: '現在の需要',
+    forecastedDemand: '予測需要',
+    unitCost: '単価',
+    quantity: '数量',
+    subtotal: '小計',
+    totalItems: '合計品目数',
+    totalCost: '合計コスト',
+    remainingBudget: '残り予算',
+    placeOrder: '注文を送信',
+    placeOrderSuccess: '注文が正常に送信されました！',
+    orderError: '注文の送信に失敗しました'
   }
 }

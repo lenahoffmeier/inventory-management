@@ -6,6 +6,7 @@ export default {
     orders: 'Orders',
     finance: 'Finance',
     demandForecast: 'Demand Forecast',
+    restocking: 'Restocking',
     companyName: 'Catalyst Components',
     subtitle: 'Inventory Management System'
   },
@@ -106,10 +107,12 @@ export default {
     title: 'Orders',
     description: 'View and manage customer orders',
     allOrders: 'All Orders',
+    submittedOrders: 'Submitted Orders',
     totalOrders: 'Total Orders',
     totalRevenue: 'Total Revenue',
     avgOrderValue: 'Avg Order Value',
     onTimeDelivery: 'On-Time Delivery',
+    deliveryLeadTime: 'Estimated Delivery',
     itemsCount: '{count} items',
     quantity: 'Qty',
     table: {
@@ -204,6 +207,7 @@ export default {
     shipped: 'Shipped',
     processing: 'Processing',
     backordered: 'Backordered',
+    'submitted order': 'Submitted Order',
     inStock: 'In Stock',
     lowStock: 'Low Stock',
     adequate: 'Adequate'
@@ -311,9 +315,32 @@ export default {
     selectLanguage: 'Select Language'
   },
 
+  // Restocking
+  restocking: {
+    title: 'Restocking',
+    description: 'Plan and submit restocking orders based on demand forecasts',
+    budgetLabel: 'Available Budget',
+    budgetSlider: 'Set your budget',
+    recommendedItems: 'Recommended Items',
+    noRecommendations: 'No items to recommend with current budget and filters',
+    itemName: 'Item',
+    currentDemand: 'Current Demand',
+    forecastedDemand: 'Forecasted Demand',
+    unitCost: 'Unit Cost',
+    quantity: 'Quantity',
+    subtotal: 'Subtotal',
+    totalItems: 'Total Items',
+    totalCost: 'Total Cost',
+    remainingBudget: 'Remaining Budget',
+    placeOrder: 'Place Order',
+    placeOrderSuccess: 'Order placed successfully!',
+    orderError: 'Failed to place order'
+  },
+
   // Common
   common: {
     loading: 'Loading...',
+    submitting: 'Submitting...',
     error: 'Error',
     noData: 'No data available',
     viewDetails: 'View Details',
